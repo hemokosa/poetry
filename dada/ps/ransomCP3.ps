@@ -1,0 +1,199 @@
+%!PS-Adobe
+%
+% Ransom note writer.  Version 1.00
+%
+% (C) Copyright 1992 Diomidis Spinellis.  All rights reserved.
+% You can use and copy this program as long as the notice above
+% remains intact.  Modified copies must be clearly marked as such.
+% Send comments, threats, corrections etc. to dds@doc.ic.ac.uk
+%
+
+% Put here the ransom note you want
+% Use the | symbol to generate new lines.
+/note (
+     ROSE|
+LENG BIMN|
+|
+     BLCK|
+IOLA ITAL|
+     BLCK|
+     ROSE|
+LITA LENG|
+HOGE KATA|
+|
+     ROSE|
+LAUL LAUL|
+|
+     BLCK|
+IMBA LOOO|
+OAOL AHN |
+|
+     BLCK|
+     ROSE|
+|
+     CERS|
+LITA LONG|
+MBAL BERI|
+     BLCK|
+     ROSE|
+HOPS IOLA|
+LOMI BERI|
+|
+ITAL) def
+
+% Left margin position
+/left 300 def
+% Right margin position
+/right 2000 def
+% Line advance
+/lineskip -40 def
+
+% Print the string
+% string ransom -
+/ransom {
+	{chr ransomchar}
+	forall
+} def
+
+% Convert a character code to a string
+% int chr string
+/chr {
+	( ) dup 0 3 index put exch pop
+} def
+
+% Draw a black filled box for the bounding box of the character
+% char box -
+/box {
+	gsave
+		gsave
+			true charpath pathbbox
+		grestore
+		1 add /ury exch def
+		1 add /urx exch def
+		1 sub /lly exch def
+		1 sub /llx exch def
+		newpath
+		llx lly moveto
+		urx lly lineto
+		urx ury lineto
+		llx ury lineto
+		closepath
+		10 random 10 div setgray
+		fill
+	grestore
+} def
+
+% Display a single ransom character
+% character ransomchar -
+/ransomchar {
+	dup (|) eq {
+		pop
+		crlf
+	} {
+		randfont 20 random 50 add scalefont setfont
+		dup
+		gsave
+			51 random 25 sub rotate
+			31 random 15 sub 31 random 15 sub rmoveto
+			dup ( ) eq {
+				[ {show} ]
+			} {
+			[
+				{ show }
+				{ show }
+				{ true charpath stroke }
+				{ true charpath 20 random 20 div setgray fill }
+				{ dup box 10 random 10 div setgray show }
+			]
+			} ifelse
+			randarray exec
+		grestore
+		stringwidth
+		pop 0 rmoveto
+		format
+	} ifelse
+} def
+
+% Return a random value 0 <= r < int
+% int random int
+/random {
+	rand
+	exch
+	mod
+} def
+
+% Return a random element from the array
+% array randarray any
+/randarray {
+	dup
+	length
+	random
+	get
+} def
+
+% Return a random font
+% - randfont font
+/randfont {
+	[
+    /Times-Roman
+    /Times-Bold
+    /Times-Italic
+    /Times-BoldItalic
+    /Helvetica
+    /Helvetica-Bold
+    /Helevetica-Oblique
+    /Helevetica-BoldOblique
+    /Courier
+    /Courier-Bold
+    /Courier-Oblique
+    /Courier-BoldOblique
+    /AvantGarde-Book
+    /AvantGarde-BookOblique
+    /AvantGarde-Demi
+    /AvantGarde-DemiOblique
+    /Bookman-Light
+    /Bookman-LightItalic
+    /Bookman-Demi
+    /Bookman-DemiItalic
+    /Helvetica-Narrow
+    /Helvetica-Narrow-Oblique
+    /Helvetica-Narrow-Bold
+    /Helvetica-Narrow-BoldOblique
+    /NewCenturySchlbk-Roman
+    /NewCenturySchlbk-Italic
+    /NewCenturySchlbk-Bold
+    /NewCenturySchlbk-BoldItalic
+    /Palatino-Roman
+    /Palatino-Italic
+    /Palatino-Bold
+    /Palatino-BoldItalic
+    /ZapfChancery-MediumItalic
+	]
+	randarray
+	findfont
+} def
+
+% Do a carriage return / line feed
+% - crlf -
+/crlf {
+	currentpoint exch pop
+	left exch moveto 0 lineskip rmoveto
+} def
+
+% Move to a new line if we are at the end of it
+% - format -
+/format {
+	currentpoint
+	pop
+	right gt
+	{crlf}
+	if
+} def
+
+clear
+erasepage
+initmatrix
+left 1200 moveto
+.5 setlinewidth
+usertime srand
+note ransom showpage
