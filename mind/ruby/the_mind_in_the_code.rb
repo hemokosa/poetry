@@ -22,4 +22,4 @@ p.bytes.reverse_each do |c|
 end
 print "eval self; "
 print "end; "
-print "for each in inspect do end; "
+print "for each in inspect do end;"
