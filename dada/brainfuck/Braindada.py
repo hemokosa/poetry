@@ -178,20 +178,20 @@ def main():
 	# Override stdin. Helpful for non-printable input. Comment to use normal input.
 	#sys.stdin = MySTDIN("<[.<]")
 
+	data = bytearray(b'<+[.<+]//0`c`c')
+	#data = bytearray(b'<.<.<.<.<.<.<.<.!001adad')
 	#data = bytearray(b',[>,]')
 	#data = bytearray(b'<.<.<.<.<.<.<.<.<.<.<.<.<.\x00!dlroW ,olleH')
-	#data = bytearray(b'<.<.<.<.<.<.<.<.!001adad')
 	#data = bytearray(b'<[.<]>>>>>>>>+\x00!dlroW ,olleH')
 	#data = bytearray(b'<[.<]>>>>>>>+\x00!adaD ,olleH')
 	#data = bytearray(b'<[.<]>>>>>+\x00!001 ,adaD')
 	#data = bytearray(b'>>++++++[<<++++++++++>++++++++>-]<--<1')
 	#data = bytearray(b'<+[.<+]ckqnvnkkdg')
-	#data = bytearray(b'<+[.<+]//0`c`c')
 	#data = bytearray(b'+[+++++-+>++>++-++++++<<]>++.[+.]')
 	#data = bytearray(b'++++++++[>+>++>+++>++++>+++++>++++++>+++++++>++++++++>+++++++++>++++++++++>+++++++++++>++++++++++++>+++++++++++++>++++++++++++++>+++++++++++++++>++++++++++++++++<<<<<<<<<<<<<<<<-]>>>>>>>>>>>>>----.++++<<<<<<<<<<<<<>>>>>>>>>>>>+.-<<<<<<<<<<<<>>>>>>>>>>>>>----.++++<<<<<<<<<<<<<>>>>>>>>>>>>+.-<<<<<<<<<<<<>>>>>>+.-<<<<<<>>>>>>.<<<<<<>>>>>>.<<<<<<.')
 	#data = bytearray(b'++++[++++>---<]>+.--[-->+++<]>--.+++.---.+[-->+<]>.-..')
-	data = bytearray(b'>++++++++[<++++++++>-]<++++.>+++++[<+++++>-]<++++.+++.---.>+++++++[<------->-]<+.-..')
-	print(data)
+	#data = bytearray(b'>++++++++[<++++++++>-]<++++.>+++++[<+++++>-]<++++.+++.---.>+++++++[<------->-]<+.-..')
+	#print(data)
 
 	# I/O without buffer
 	#sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
@@ -202,7 +202,7 @@ def main():
 
 	sys.stdin = sys.__stdin__
 
-	print(intr.tape.data)
+	#print(intr.tape.data)
 	#print(intr.tape.data, end="")
 	#print(intr.tape.data.decode('ascii'), end="")
 	#print(intr.tape.data.decode('ascii').replace('\0','_').strip('_'), end="")
