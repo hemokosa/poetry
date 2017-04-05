@@ -1,0 +1,16 @@
+d1 $ sound "909 ~ bass bass:4"
+d1 $ sound "bd"
+d1 $ sound "bd bd"
+d1 $ sound "bd*3"
+d1 $ sound "bd:1 sn:3"
+d1 $ sound "bd:1 sn:3 ~ sn:3"
+
+d1 silence
+d2 silence
+d1 $ sound "bd:3 [sn:1*2] ~ bd:3"
+d1 $ sound "bd [[sn:1*2] bd] [sn:1 [bd*2]]"
+d1 $ stack[
+  sound "bd:3 [sn:1*2] ~ bd:3",
+  sound "bass ~ bass:3 ~",
+  sound "[~ cp]*4"
+]

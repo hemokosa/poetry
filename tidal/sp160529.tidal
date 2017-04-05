@@ -1,0 +1,346 @@
+% jackd -d coreaudio &
+% cd /Volumes/data/Code/Dirt
+% cd /Users/bota/Documents/Code/Dirt
+% ./dirt &
+
+en:43
+sp:126
+ph:122
+inv:84
+poem:45
+say
+bdt
+
+clap:13
+hat:34
+kick:17
+kick2:10
+perc:6
+perc2:18
+snare:30
+snare2:22
+cymbal:30
+tom:24
+misc:31
+jazzfunk:208
+fx:10
+
+bd:24
+dr:
+sn:52
+ht:
+lt:
+mt:
+sf:
+psr:
+
+amencutup, arpy, bass1, bassdm, birds3, bleep, bottle, click, cosmicg, future, hand, yeah, tech, flick, sine, mouse, noise2, industrial, invaders, jazz, jungle, jungbass, mute, sax, pluck, alphabet, speech, speechless, sitar, space
+
+
+cps 1
+bps (40/120)
+hush
+d1 silence
+d2 silence
+
+d1 $ sound (samples "bd(7,9)? hat(7,12)? kick*5? poem/3 inv/5 say/7 ~" (irand 256)) # pan rand
+
+# gain "0.5" # delay "0.5"
+# gain "1 0.8 0.5 0.7"
+# gain (every 3 (rev) $ "1 0.8 0.5 0.7")
+# speed "[1 0.5, 1.5 2 3 4]"
+# up "0 1 2 3 4 5 6 7 8 9 10 11"
+$ every 2 (|=| speed "2")
+|=| pan "0 1 0.25 0.75"
+$ pan "0 1 0.25 0.75" |=| sound
+# pan sine1
+# pan (slow 8 $ saw1)
+# pan (density 1.75 $ tri1)
+# speed (density 2 $ tri)
+# speed (scale 1 3 $ tri1)
+# speed (slow 4 $ scale 1 3 $ tri1)
+# speed (scale (-2) 3 $ tri1)
+# cutoff (scale 0.001 0.1 $ slow 4 $ sine1) # resonance "0.1"
+$ (0.25 <~)
+$ every 3 (0.25 ~>)
+$ every 3 (1000.125 ~>)
+# pan (scale 0.25 0.75 $ rand)
+# speed "0.25" # cut "1"
+
+d2 $ sound "bd([5 3]/2,8)"
+d2 $ sound "bd(3,8) sn*2"
+
+d1 $ jux $ degradeBy 0.6 $ sound (samples "hat*7? kick*5? say/2 poem/5 inv/3" (irand 256)) # speed "[1.5, 1.0, 0.67]" # pan rand
+d2 $ chop 8 $ stut 1 0.9 0.9 $ jux (rev) $ degradeBy 0.9 $ sound (samples "snare2*7 tom*9? inv/3 poem/2" (irand 999)) # pan rand # shape ((/ 2) <$> sinewave1)
+d1 $ jux (rev) $ degradeBy 0.6 $ sound (samples "sf*7? kick*5? inv*2 poem/3 mt/5" (irand 256)) # speed "[1.1, 1.0, 0.9]" # pan rand
+d1 $ jux ((# speed "0.5") . rev) $ iter 4 $ sound (samples "bd/7 sn/2 inv/2 poem/3" (irand 999))
+d3 $ slow 8 $ jux (density 2) $ striate' 32 (1/16) $ sound (samples "ph/9 sp/7 en/2 inv/2 poem/3" (irand 999)) # vowel "[a i u e o]"
+d4 $ palindrome $ slow 3 $ juxBy 0.5 (density 2) $ sound (samples "bd*7 sn/2 inv/2 poem/3" (irand 999))
+d2 $ brak $ degradeBy 0.6 $ sound (samples "bd/3 poem/2 sn/2 inv/5 poem/2" (irand 999)) # vowel "[a i u e o]"
+d5 $ smash 3 [2,3,4] $ sound (samples "bd/3 sn*6? inv/5 poem/3" (irand 999)) # pan rand
+d6 $ spread slow [2,4%3] $ sound (samples "en/3 sp/2 inv/5 poem/2" (irand 999)) # speed "[2, 0.5]" # pan rand
+d1 $ spread slow [2,4%3] $ smash 3 [2,3,4] $ sound (samples "bd/3 sn/2 inv/5 poem/2" (irand 999))
+d5 $ chop 16 $ sound (samples "bd/7 sn/2 inv/2 poem/3" (irand 999)) # pan rand
+d3 $ chop 8 $ sound (samples "bd/5? sn/2 inv/5 poem/2" (irand 999)) # pan rand # degrade (vowel "[a i u e o]")
+d2 $ gap 8 $ sound (samples "bd/3 sn/2 inv? poem/5" (irand 999)) # density 5 (vowel "a i u e o")
+d1 $ striate 3 $ sound (samples "bd*7? sn/2 inv/2 poem/3" (irand 999)) # pan rand
+d1 $ randcat $ striate 5 $ sound (samples "bd/3 sn/2 inv/5 poem/2" (irand 999)) |+| pan "[0 1 0.25 0.75 0.5]     "
+d1 $ striateL' 3 0.125 4 $ sound (samples "bd/3 sn/2 inv/5 poem/2" (irand 999)) |+| gain "[0.8, 1.2]"
+d8 $ stut 4 0.5 (-0.2) $ sound (samples "bd/3 sn/2 inv/5 poem/2" (irand 999)) # pan rand # degrade (vowel "[a i u e o]")
+d1 $ sound (brak (samples "{ ~ ~ inv/3?, ~ poem/7?}" (irand 999))) # vowel "[a e i o u]" # delay "[0.1 0.0 0.0]" # pan (rand)
+
+
+
+
+$ every 4 (0.25 <~)
+# shape ((/ 2) <$> sinewave1)
+# density 3 (vowel "a e o")
+$ iter 4
+$ slow 32 $ jux (rev) $ striate' 32 (1/16)
+$ slow 32 $ jux ((# speed "0.5") . rev) $ striate' 32 (1/16)
+$ juxBy 0.5 (density 2)
+$ palindrome
+$ every 3 (rev)
+# slow 0.75 (vowel "a e o")
+$ slowspread ($) [density 2, rev, slow 2, striate 3, (# speed "0.8")]
+$ smash 3 [2,3,4]
+$ spread (slow) [2,3,4] $ striate 3
+$ (spread' slow "1%4 2 1 3" $ spread (striate) [2,3,4,1]
+# speed "[1 2 1 1]/2"
+$ slow (4%3)
+$ spread slow [2,4%3]
+$ trunc 0.75
+$ zoom (0.25, 0.75)
+
+$ chop 32
+$ gap 16
+$ striate 3
+$ slow 8 $ striate 128
+$ slow 32 $ striate' 32 (1/16)
+$ striateL' 3 0.125 4
+$ stut 4 0.5 0.2
+
+$ every 3 (density 2)
+$ foldEvery [3, 4, 5] (density 2)
+$ sometimesBy 0.25 (density 2)
+$ whenmod 8 4 (density 2)
+$ within (0.75, 1) (# speed "0.5")
+
+$ slow 3 $ spin 4
+
+cps 0.5
+# unit "c" # begin "-1" # cut "-1" # coarse "1 2 4 8 16 32 64 128"
+# unit "c" # coarse "1 2 4 8 16 32 64 128"
+
+# speed "3" # speed "2"
+# speed "3" |+| speed "2"
+# speed "1 2"
+|+| speed (slow 4 $ scale 1 1.5 sine1)
+# up "5 3"
+
+hush
+
+/*
+Beat rotation: ( time value <~) ( time value ~>)
+brak: Make a pattern sound a bit like a breakbeat
+degrade: randomly removes events from a pattern 50% of the time
+density: Speed up a pattern
+iter: Divides a pattern into a given number of subdivisions
+jux: creates strange stereo effects
+smash: combination of spread and striate - it cuts the samples into the given number of bits, and then cuts between playing the loop at different speeds according to the values in the list.
+chop: granualizes every sample
+gap:
+stut: delay (depth, feedback, time)
+Striate: a kind of granulator (number of times)
+striateL: (number of times, number of chunks, loop count)
+*/
+
+(2,5) : A thirteenth century Persian rhythm called Khafif-e-ramal.
+(3,4) : The archetypal pattern of the Cumbia from Colombia, as well as a Calypso rhythm from Trinidad.
+(3,5,2) : Another thirteenth century Persian rhythm by the name of Khafif-e-ramal, as well as a Rumanian folk-dance rhythm.
+(3,7) : A Ruchenitza rhythm used in a Bulgarian folk-dance.
+(3,8) : The Cuban tresillo pattern.
+(4,7) : Another Ruchenitza Bulgarian folk-dance rhythm.
+(4,9) : The Aksak rhythm of Turkey.
+(4,11) : The metric pattern used by Frank Zappa in his piece titled Outside Now.
+(5,6) : Yields the York-Samai pattern, a popular Arab rhythm.
+(5,7) : The Nawakhat pattern, another popular Arab rhythm.
+(5,8) : The Cuban cinquillo pattern.
+(5,9) : A popular Arab rhythm called Agsag-Samai.
+(5,11) : The metric pattern used by Moussorgsky in Pictures at an Exhibition.
+(5,12) : The Venda clapping pattern of a South African children’s song.
+(5,16) : The Bossa-Nova rhythm necklace of Brazil.
+(7,8) : A typical rhythm played on the Bendir (frame drum).
+(7,12) : A common West African bell pattern.
+(7,16,14) : A Samba rhythm necklace from Brazil.
+(9,16) : A rhythm necklace used in the Central African Republic.
+(11,24,14) : A rhythm necklace of the Aka Pygmies of Central Africa.
+(13,24,5) : Another rhythm necklace of the Aka Pygmies of the upper Sangha.
+
+flick sid can metal future gabba sn mouth co gretsch mt arp h cp
+cr newnotes bass crow hc tabla bass0 hh bass1 bass2 oc bass3 ho
+odx diphone2 house off ht tink perc bd industrial pluck trump
+printshort jazz voodoo birds3 procshort blip drum jvbass psr
+wobble drumtraks koy rave bottle kurt latibro rm sax lighter lt
+arpy feel less stab ul
+
+d1 $ sound "~ inv:16/3 inv:14/7 ~*7 bd:3/133 ~ en:30/17 ~ sp:11/11 hh/15"
+d2 $ sound "~ en:17/33 en:15*7? ~*7 bd:5/133 ~ en:40/17 ~ sp:12/11 hh*19?" # pan rand
+
+d1 $ sound (samples "inv/2?" (irand 84)) # density 5 (vowel "a e i o u") # pan rand
+d2 $ sound "~ flock*23? ~ bd*19?" # vowel "a e i o u" # pan rand
+d3 $ sound (samples "poem/3?" (irand 45)) # density 5 (vowel "a e i o u") # pan rand
+
+d1 $ every 4 (0.25 <~) $ sound (density 2 "~ en:16/33 en:14/7 ~*7 bd:3/133 ~ en:30/17 ~ sp:11/11 hh/15") # shape ((/ 2) <$> rand)
+
+d1 $ sound (brak "~ en:17/33 en:15/7 ~*7 bd:5/133 ~ en:40/17 ~ sp:12/11 hh/15")
+
+d1 $ slow 2 $ degrade $ sound "[[[en:5/8, sp:4/3] sp:3/8]?, en*4]?"
+d1 $ slow 4 $ sound "[[[en:5*8,en:4*3]? en:3*8]?, sp*4, hh*111?]? " |+| pan "0 1 0.25 0.75 0.5"
+
+   # accelerate "-6"
+   # speed "2"
+hush
+d1 $ sound (samples "sp*11?" (irand 126)) # density 5 (vowel "a i u e o") # pan rand
+d2 $ sound (samples "en*7?" (irand 43)) # density 5 (vowel "a e i o u") # pan rand
+
+
+d1 $ sound (fit 3 ["bd", "sn", "arpy", "arpy:1", "casio"] "0 [~ 1] 2 1")
+
+d1 $ fit' 1 4 (run 4) "[0 3*2 2 1 0 3*2 2 [1*8 ~]]/2" $ chop 4 $ (sound "en:22" # unit "c")
+
+d1 $ sound "[en:38/5 sp:3*7 ~ ~ [bd/3 en:41/4]/3, sp:2/3 sp:4 en:41/4, bd:1*11 ~ ~ sn:3]" |=| pan "0 1 0.25 0.75 0.5" # vowel "a e u o u"
+
+d1 $ randcat [sound "bd*2 sn", sound "jvbass*3", sound "drum*2", sound "ht mt"]
+
+
+d2 $ slow 4 $ rev(sound "bd([5 3]/2, 8)")
+d2 $ every 4 $ density 4 $ rev $sound "bd([5 3]/2, 8)"
+d2 $ slow 4 $ density 4 $ rev $sound "sp([5 3]/2, 8)" # vowel "a i u e o"
+
+d2 $ every 3 (|-| up "3") $ every 2 (|+| up "5") $ sound "sp:4*7" |=| up "0 2 4 5"
+
+d3 $ sound "flick:9*4" # speed "0.7" # vowel "a"
+d3 silence
+
+d3 $ sound "sp:19(3,7)" # up "0 -1 -2 -3 -4 -5 -6 -7 -8 -9 -10 -11"
+
+d3 $ sound "bd([5 3]/2,8)"
+d3 $ sound "[metal(3,5,2), perc(4,11)]"
+d3 $ sound "bd(3,5,2)*8" # up (run 8)
+
+d4 $ sound $ samples "sp(3,7)? ~" (irand 126)
+d4 $ sound $ samples "sp(3,7) ~" (irand 126) # pan (rand)
+
+d1 $ every 4 (0.25 <~) $ sound (density 2 "bd sn kurt")
+
+hush
+
+d1 $ sound (brak (samples "{ ~ ~ inv/3?, ~ poem/7?}" (irand 99))) # vowel "[a e i o u]" # delay "[0.1 0.0 0.0]" # pan (rand)
+d1 silence
+d1 $ sound "bd" # vowel "a"
+d2 $ sound (samples "en?/2" (irand 126)) # delay "0.01 0.0 0.0" |+| vowel "[a e i o u]" |+| speed "[1.2, 0.8]"
+
+d3 $ every 4 (slow 3) $ sound "bd*2? [bd [sn? sn*2? sn?]? sn]?" # delay "0.01"
+d3 $ e 3 8 $ sound "bd*2? [bd [sn? sn*2? sn?]? sn]?" # delay "0.01"
+
+d1 $ sound "sn"
+d1 $ sound "bd? bd?"
+d1 $ sound "bd*3"
+d1 $ sound "bd:1 sn:3"
+d1 $ sound "bd:1 sn:3 ~ sn:3"
+solo $ d1 $ sound "bd sn"
+d1 $ sound "[bd bd bd, sd cp sd cp]"
+
+d2 $ sound "bd sn hh cp mt arpy drum odx bd arpy bass2 feel future"
+
+d1 $ slow 32 $ jux (rev) $ striate' 32 (1/16) $ sound "bev"
+
+d1 $ sound "[bd sn] cp"
+d1 $ sound "bd [sn sn]"
+
+d1 silence
+d2 silence
+hush
+
+d1 $ sound "bd:3 [sn:1*2] ~ bd:3"
+d1 $ sound "bd [[sn:1*2] bd] [sn:1 [bd*2]]"
+
+d1 $ stack[
+  sound "bd:3 [sn:1*2] ~ bd:3",
+  sound "bass ~ bass:3 ~",
+  sound "[~ cp]*4"
+]
+
+d1 $ stack[
+  sound "bd:3 [sn:1*2] ~ bd:3" |+| gain "1.0",
+  sound "bass ~ bass:3 ~" |+| gain "1.2",
+  sound "[~ cp]*4"|+| gain "0.9" |+| pan rand
+]
+
+
+d1 $
+jux (rev) $
+stack[
+  sound "bd:3 [sn:1*2] ~ bd:3" |+| gain "1.0",
+  sound "bass ~ bass:3 ~" |+| gain "1.2",
+  sound "[~ cp]*4"|+| gain "0.8" |+| pan rand
+]
+
+d1 $
+jux (rev) $
+chop 16 $
+stack[
+  sound "bd:3 [sn:1*2] ~ bd:3" |+| gain "1.0",
+  sound "bass ~ bass:3 ~" |+| gain "1.2",
+  sound "[~ cp]*4"|+| gain "0.8" |+| pan rand
+]
+
+d1 $
+jux (rev) $
+every 4 (chop 16) $
+every 6 (gap 16) $
+stack[
+  sound "bd:3 [sn:1*2] ~ bd:3" |+| gain "1.0",
+  sound "bass ~ bass:3 ~" |+| gain "1.2",
+  sound "[~ cp]*4"|+| gain "0.8" |+| pan rand
+]
+
+d1 $
+jux (iter 4) $
+every 4 (chop 16) $
+every 6 (gap 16) $
+stack[
+  sound "bd:3 [sn:1*2] ~ bd:3" |+| gain "1.0",
+  sound "bass ~ bass:3 ~" |+| gain "1.2",
+  sound "[~ cp]*4"|+| gain "0.8" |+| pan rand
+]
+
+flick sid can metal future gabba sn mouth co gretsch mt arp h cp
+cr newnotes bass crow hc tabla bass0 hh bass1 bass2 oc bass3 ho
+odx diphone2 house off ht tink perc bd industrial pluck trump
+printshort jazz voodoo birds3 procshort blip drum jvbass psr
+wobble drumtraks koy rave bottle kurt latibro rm sax lighter lt
+arpy feel less stab ul
+
+(2,5) : A thirteenth century Persian rhythm called Khafif-e-ramal.
+(3,4) : The archetypal pattern of the Cumbia from Colombia, as well as a Calypso rhythm from Trinidad.
+(3,5,2) : Another thirteenth century Persian rhythm by the name of Khafif-e-ramal, as well as a Rumanian folk-dance rhythm.
+(3,7) : A Ruchenitza rhythm used in a Bulgarian folk-dance.
+(3,8) : The Cuban tresillo pattern.
+(4,7) : Another Ruchenitza Bulgarian folk-dance rhythm.
+(4,9) : The Aksak rhythm of Turkey.
+(4,11) : The metric pattern used by Frank Zappa in his piece titled Outside Now.
+(5,6) : Yields the York-Samai pattern, a popular Arab rhythm.
+(5,7) : The Nawakhat pattern, another popular Arab rhythm.
+(5,8) : The Cuban cinquillo pattern.
+(5,9) : A popular Arab rhythm called Agsag-Samai.
+(5,11) : The metric pattern used by Moussorgsky in Pictures at an Exhibition.
+(5,12) : The Venda clapping pattern of a South African children’s song.
+(5,16) : The Bossa-Nova rhythm necklace of Brazil.
+(7,8) : A typical rhythm played on the Bendir (frame drum).
+(7,12) : A common West African bell pattern.
+(7,16,14) : A Samba rhythm necklace from Brazil.
+(9,16) : A rhythm necklace used in the Central African Republic.
+(11,24,14) : A rhythm necklace of the Aka Pygmies of Central Africa.
+(13,24,5) : Another rhythm necklace of the Aka Pygmies of the upper Sangha.
