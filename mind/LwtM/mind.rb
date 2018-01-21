@@ -17,6 +17,7 @@ class MAIN
     @tn = 0
     @inc = 1
     @com = "HhQqCcAaIiTtGgPp9Ff+-,.?<#,;!Ww _\n"
+    @step = 0
     srand(Time.now.to_i)
   end
 
@@ -86,6 +87,10 @@ class MAIN
           @count = 0
         end
       }
+      @step += 1
+      if @step >= 10000 then
+        break
+      end
       emotion
       }
   end
