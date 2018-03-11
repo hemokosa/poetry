@@ -10,7 +10,7 @@ class MAIN
     @src = src
     @accum = 0
     @mind = 50
-    @base = 50.0
+    @base = 25
     @min = 10
     @max = 20
     @code = ""
@@ -432,7 +432,7 @@ class MAIN
     if @mind < 5
       @mind = 5
     end
-    sleep(@base/@mind)
+    sleep(@base.fdiv(@mind))
   end
 
 end
