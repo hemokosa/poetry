@@ -19,7 +19,7 @@ class MAIN
     @th = []
     @tn = 0
     @inc = 1
-    @com = "HhQqCcAaIiTtGgPp9FfSs+-,.?<#,;!Ww _\n"
+    @com = "HhQqCcAaIiTtGgPp9FfRrSs+-,.?<#,;!Ww _\n"
     @step = 0
     srand(Time.now.to_i)
     cmd = "say -v " + ["Alex", "Junior", "Kathy", "Princess", "Samantha", "Vicki", "Victoria"].sample
@@ -28,11 +28,18 @@ class MAIN
       pipe.write(cin)
       pipe.close_write
     end
-
   end
 
   def run
     loop {
+      system("stty raw -echo")
+      k = STDIN.read_nonblock(1) rescue nil
+      system("stty -raw echo")
+      if k == "."
+        puts
+        break
+      end
+
       c = @src[@count]
       case c
       when /H|h/
@@ -55,6 +62,8 @@ class MAIN
         bottles_of_beer
       when /F|f/
         fizz_buzz
+      when /R|r/
+        rhyme
       when /S|s/
         scraping
       when "1"
@@ -101,11 +110,9 @@ class MAIN
         end
       }
       @step += 1
-      if @step >= 100000 then
-        break
-      end
       emotion
-      }
+      puts "."
+    }
   end
 
   private
@@ -301,6 +308,22 @@ class MAIN
       end
       sleep(1)
     end
+  end
+
+  def rhyme
+    fname = 'rhyme.txt'
+    fp = open(fname,'r')
+    line_count = 0
+    while fp.gets
+      line_count += 1
+    end
+    4.times{
+      n = rand(line_count)
+      File.open(fname).each_with_index { |line, index|
+        puts line if index == n
+        speak(line) if index == n
+      }
+    }
   end
 
   def scraping
