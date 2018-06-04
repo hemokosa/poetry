@@ -19,10 +19,10 @@ class MAIN
     @th = []
     @tn = 0
     @inc = 1
-    @com = "HhQqLlSsIiCcDdTtGgPp9FfRrKk+-,.?<#,;!Ww _\n"
+    @com = "HhQqCcAaIiTtGgPp9FfRrSs+-,.?<#,;!Ww _\n"
     @step = 0
     srand(Time.now.to_i)
-    cmd = "say -v " + ["Alex", "Junior", "Princess", "Samantha", "Vicki", "Victoria", "Kyoko", "Otoya"].sample
+    cmd = "say -v " + ["Alex", "Junior", "Kathy", "Princess", "Samantha", "Vicki", "Victoria"].sample
     cin = src
     IO.popen(cmd, 'r+') do |pipe|
       pipe.write(cin)
@@ -46,16 +46,12 @@ class MAIN
         hello
       when /Q|q/
         speak_source
-      when /L|l/
+      when /C|c/
         count_source
-      when /S|s/
+      when /A|a/
         sort_source
       when /I|i/
         introspection
-      when /C|c/
-        consciousness
-      when /D|d/
-        infrathins
       when /T|t/
         truism
       when /G|g/
@@ -68,8 +64,8 @@ class MAIN
         fizz_buzz
       when /R|r/
         rhyme
-      when /K|k/
-        kardashian
+      when /S|s/
+        scraping
       when "1"
         start_10
       when "0"
@@ -211,34 +207,6 @@ class MAIN
     }
   end
 
-  def infrathins
-    fname = 'infrathins.txt'
-    fp = open(fname,'r')
-    line_count = 0
-    while fp.gets
-      line_count += 1
-    end
-    n = rand(line_count)
-    File.open(fname).each_with_index { |line, index|
-      puts line if index == n
-      speak(line) if index == n
-    }
-  end
-
-  def consciousness
-    fname = 'consciousness.txt'
-    fp = open(fname,'r')
-    line_count = 0
-    while fp.gets
-      line_count += 1
-    end
-    n = rand(line_count)
-    File.open(fname).each_with_index { |line, index|
-      puts line if index == n
-      speak(line) if index == n
-    }
-  end
-
   def truism
     fname = 'truisms.txt'
     fp = open(fname,'r')
@@ -358,7 +326,7 @@ class MAIN
     }
   end
 
-  def kardashian
+  def scraping
     term = "Kim+Kardashian+Marriage"
     url = "http://www.google.com/search?num=100&hl=en&q=" + term
     page = open url

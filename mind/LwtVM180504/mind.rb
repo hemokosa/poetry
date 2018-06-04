@@ -2,60 +2,39 @@ require 'net/http'
 require 'uri'
 require 'json'
 require 'date'
-require 'nokogiri'
-require 'open-uri'
 
 class MAIN
   def initialize(src)
     @src = src
     @accum = 0
     @mind = 50
-    @base = 25
+    @base = 50.0
     @min = 10
     @max = 20
     @code = ""
     @count = 0
-    @countold = 0
     @th = []
     @tn = 0
     @inc = 1
-    @com = "HhQqLlSsIiCcDdTtGgPp9FfRrKk+-,.?<#,;!Ww _\n"
+    @com = "HhQqCcAaIiTtGgPp9Ff+-,.?<#,;!Ww _\n"
     @step = 0
     srand(Time.now.to_i)
-    cmd = "say -v " + ["Alex", "Junior", "Princess", "Samantha", "Vicki", "Victoria", "Kyoko", "Otoya"].sample
-    cin = src
-    IO.popen(cmd, 'r+') do |pipe|
-      pipe.write(cin)
-      pipe.close_write
-    end
   end
 
   def run
     loop {
-      system("stty raw -echo")
-      k = STDIN.read_nonblock(1) rescue nil
-      system("stty -raw echo")
-      if k == "."
-        puts
-        break
-      end
-
       c = @src[@count]
       case c
       when /H|h/
         hello
       when /Q|q/
-        speak_source
-      when /L|l/
+        print_source
+      when /C|c/
         count_source
-      when /S|s/
+      when /A|a/
         sort_source
       when /I|i/
         introspection
-      when /C|c/
-        consciousness
-      when /D|d/
-        infrathins
       when /T|t/
         truism
       when /G|g/
@@ -66,10 +45,6 @@ class MAIN
         bottles_of_beer
       when /F|f/
         fizz_buzz
-      when /R|r/
-        rhyme
-      when /K|k/
-        kardashian
       when "1"
         start_10
       when "0"
@@ -102,7 +77,6 @@ class MAIN
         sleep(1)
       end
       @code = c
-      @countold = @count
       @count += @inc
       if @count >= @src.length || @count < 0 then
         break
@@ -114,49 +88,21 @@ class MAIN
         end
       }
       @step += 1
+      if @step >= 10000 then
+        break
+      end
       emotion
-      puts "."
-    }
+      }
   end
 
   private
 
-  def speak(message)
-    fname = 'name.txt'
-    fp = open(fname,'r')
-    line_count = 0
-    while fp.gets
-      line_count += 1
-    end
-    n = rand(line_count)
-    File.open(fname).each_with_index { |line, index|
-      if index == n then
-        rate = 120 + rand(@mind)
-        rate = 50 if rate < 50
-        rate = 500 if rate > 500
-        cmd = "say -r " + rate.to_s + " -v " + line.chop
-        pitch = rand(@mind)/2
-        if rand(2) == 0
-          cpre = "[[pbas + " + pitch.to_s + "]] "
-        else
-          cpre = "[[pbas - " + pitch.to_s + "]] "
-        end
-        cin = cpre + message.to_s
-        IO.popen(cmd, 'r+') do |pipe|
-          pipe.write(cin)
-          pipe.close_write
-        end
-      end
-    }
-  end
-
   def hello
     puts "Hello, world!"
-    speak("Hello, world!")
   end
 
-  def speak_source
-    speak(@src)
+  def print_source
+    print @src
   end
 
   def count_source
@@ -171,9 +117,6 @@ class MAIN
         c_num += line.size
       end
       print l_num, " ", w_num, " ", c_num
-      speak(l_num)
-      speak(w_num)
-      speak(c_num)
       puts
     }
   end
@@ -190,8 +133,6 @@ class MAIN
       end
       dic.sort.each {|key, value|
         print key, " ", value, " "
-        speak(key)
-        speak(value)
       }
       puts
     }
@@ -207,35 +148,6 @@ class MAIN
     n = rand(line_count)
     File.open(fname).each_with_index { |line, index|
       puts line if index == n
-      speak(line) if index == n
-    }
-  end
-
-  def infrathins
-    fname = 'infrathins.txt'
-    fp = open(fname,'r')
-    line_count = 0
-    while fp.gets
-      line_count += 1
-    end
-    n = rand(line_count)
-    File.open(fname).each_with_index { |line, index|
-      puts line if index == n
-      speak(line) if index == n
-    }
-  end
-
-  def consciousness
-    fname = 'consciousness.txt'
-    fp = open(fname,'r')
-    line_count = 0
-    while fp.gets
-      line_count += 1
-    end
-    n = rand(line_count)
-    File.open(fname).each_with_index { |line, index|
-      puts line if index == n
-      speak(line) if index == n
     }
   end
 
@@ -249,7 +161,6 @@ class MAIN
     n = rand(line_count)
     File.open(fname).each_with_index { |line, index|
       puts line if index == n
-      speak(line) if index == n
     }
   end
 
@@ -260,17 +171,10 @@ class MAIN
     while fp.gets
       line_count += 1
     end
-    (@accum + 3).times{
+    @accum.times{
       n = rand(line_count)
       File.open(fname).each_with_index { |line, index|
         print line.chop if index == n
-        if index == n then
-          if rand(2) == 1
-            speak("[[emph +]] " + line.chop)
-          else
-            speak("[[emph -]] " + line.chop)
-          end
-        end
       }
       print " "
     }
@@ -286,7 +190,6 @@ class MAIN
     n = rand(line_count)
     File.open(fname).each_with_index { |line, index|
       puts line if index == n
-      speak(line) if index == n
     }
   end
 
@@ -315,9 +218,7 @@ class MAIN
       end
 
       puts "#{before.capitalize} of beer on the wall, #{before} of beer."
-      speak("#{before.capitalize} of beer on the wall, #{before} of beer.")
       puts "#{action}, #{after} of beer on the wall."
-      speak("#{action}, #{after} of beer on the wall.")
       puts "" unless k == 0
     end
   end
@@ -327,47 +228,14 @@ class MAIN
     1.upto(@accum) do |i|
       if i % 5 == 0 and i % 3 == 0
         puts "FizzBuzz"
-        speak("FizzBuzz")
       elsif i % 5 == 0
         puts "Buzz"
-        speak("Buzz")
       elsif i % 3 == 0
         puts "Fizz"
-        speak("Fizz")
       else
         puts i
-        speak(i)
       end
       sleep(1)
-    end
-  end
-
-  def rhyme
-    fname = 'rhyme.txt'
-    fp = open(fname,'r')
-    line_count = 0
-    while fp.gets
-      line_count += 1
-    end
-    4.times{
-      n = rand(line_count)
-      File.open(fname).each_with_index { |line, index|
-        puts line if index == n
-        speak(line) if index == n
-      }
-    }
-  end
-
-  def kardashian
-    term = "Kim+Kardashian+Marriage"
-    url = "http://www.google.com/search?num=100&hl=en&q=" + term
-    page = open url
-    doc = Nokogiri::HTML page
-
-    n = rand(72)
-    doc.search('h3 a').each_with_index do |phrase, index|
-      puts phrase.inner_text if index == n
-      speak(phrase.inner_text) if index == n
     end
   end
 
@@ -474,8 +342,6 @@ class MAIN
         if forecast['temperature']['min'] != nil
           @min = forecast['temperature']['min']['celsius'].to_i
           @max = forecast['temperature']['max']['celsius'].to_i
-          speak(@min.to_s)
-          speak(@max.to_s)
         end
       end
     end
@@ -487,7 +353,7 @@ class MAIN
     if @mind < 5
       @mind = 5
     end
-    sleep(@base.fdiv(@mind))
+    sleep(@base/@mind)
   end
 
 end
