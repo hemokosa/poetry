@@ -22,8 +22,8 @@ class MAIN
     @com = "HhQqLlSsIiCcDdTtGgPp9FfRrKk+-,.?<#,;!Ww _\n"
     @step = 0
     srand(Time.now.to_i)
-    cmd = "say -v " + ["Alex", "Junior", "Princess", "Samantha", "Vicki", "Victoria", "Kyoko", "Otoya"].sample
-    cin = src
+    cmd = "say -v " + ["Alex", "Junior", "Princess", "Samantha", "Vicki", "Victoria"].sample
+    cin = "[[volm 0.2]]" + src
     IO.popen(cmd, 'r+') do |pipe|
       pipe.write(cin)
       pipe.close_write
@@ -115,7 +115,8 @@ class MAIN
       }
       @step += 1
       emotion
-      puts "."
+      @count.times{ print "." }
+      puts c
     }
   end
 
@@ -137,9 +138,9 @@ class MAIN
         cmd = "say -r " + rate.to_s + " -v " + line.chop
         pitch = rand(@mind)/2
         if rand(2) == 0
-          cpre = "[[pbas + " + pitch.to_s + "]] "
+          cpre = "[[volm 0.2]][[pbas + " + pitch.to_s + "]] "
         else
-          cpre = "[[pbas - " + pitch.to_s + "]] "
+          cpre = "[[volm 0.2]][[pbas - " + pitch.to_s + "]] "
         end
         cin = cpre + message.to_s
         IO.popen(cmd, 'r+') do |pipe|
@@ -274,6 +275,7 @@ class MAIN
       }
       print " "
     }
+    puts
   end
 
   def pangram
@@ -390,7 +392,7 @@ class MAIN
         else
           print [47, 92][rand(0..1)].chr
         end
-        sleep(@base/@mind/10.0)
+        sleep(10.0*@base/@mind)
       end
     }
   end
