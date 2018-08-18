@@ -19,7 +19,7 @@ class MAIN
     @th = []
     @tn = 0
     @inc = 1
-    @com = "HhQqCcSsIiDdTtGgPpVvKk+-.?!<#;,^Ww _\n"
+    @com = "HhQqCcSsIiDdTtGgPpVvFfEeKk+-.?!<#;,^Ww _\n"
     @step = 0
     srand(Time.now.to_i)
     cmd = "say -v " + ["Alex", "Junior", "Princess", "Samantha", "Vicki", "Victoria"].sample
@@ -55,13 +55,17 @@ class MAIN
       when /D|d/
         infrathins
       when /T|t/
-        truism
+        truisms
       when /G|g/
         gbb
       when /P|p/
         prophecy
       when /V|v/
         verse
+      when /F|f/
+        finnegan
+      when /E|e/
+        emotions
       when /K|k/
         kardashian
       when "+"
@@ -141,6 +145,22 @@ class MAIN
     }
   end
 
+  def read(file, n)
+    fname = file
+    fp = open(fname,'r')
+    line_count = 0
+    while fp.gets
+      line_count += 1
+    end
+    n.times{
+      l = rand(line_count)
+      File.open(fname).each_with_index { |line, index|
+        puts line if index == l
+        speak(line) if index == l
+      }
+    }
+  end
+
   def hello
     puts "Hello, world!"
     speak("Hello, world!")
@@ -203,31 +223,11 @@ class MAIN
   end
 
   def infrathins
-    fname = 'infrathins.txt'
-    fp = open(fname,'r')
-    line_count = 0
-    while fp.gets
-      line_count += 1
-    end
-    n = rand(line_count)
-    File.open(fname).each_with_index { |line, index|
-      puts line if index == n
-      speak(line) if index == n
-    }
+    read('infrathins.txt', 1)
   end
 
-  def truism
-    fname = 'truisms.txt'
-    fp = open(fname,'r')
-    line_count = 0
-    while fp.gets
-      line_count += 1
-    end
-    n = rand(line_count)
-    File.open(fname).each_with_index { |line, index|
-      puts line if index == n
-      speak(line) if index == n
-    }
+  def truisms
+    read('truisms.txt', 1)
   end
 
   def gbb
@@ -255,33 +255,19 @@ class MAIN
   end
 
   def prophecy
-    fname = 'prophecy.txt'
-    fp = open(fname,'r')
-    line_count = 0
-    while fp.gets
-      line_count += 1
-    end
-    n = rand(line_count)
-    File.open(fname).each_with_index { |line, index|
-      puts line if index == n
-      speak(line) if index == n
-    }
+    read('prophecy.txt', 4)
   end
 
   def verse
-    fname = 'verse.txt'
-    fp = open(fname,'r')
-    line_count = 0
-    while fp.gets
-      line_count += 1
-    end
-    4.times{
-      n = rand(line_count)
-      File.open(fname).each_with_index { |line, index|
-        puts line if index == n
-        speak(line) if index == n
-      }
-    }
+    read('verse.txt', 4)
+  end
+
+  def finnegan
+    read('finnegan.txt', 1)
+  end
+
+  def emotions
+    read('emotions.txt', 1)
   end
 
   def kardashian
@@ -363,7 +349,7 @@ class MAIN
       puts "Error of Network Comes As No Surprise.\n"
     else
       result['forecasts'].each do |forecast|
-        puts(forecast['telop'])
+        # puts(forecast['telop'])
         if forecast['temperature']['min'] != nil
           @min = forecast['temperature']['min']['celsius'].to_i
           @max = forecast['temperature']['max']['celsius'].to_i

@@ -1,0 +1,600 @@
+a surge of pride
+abhorrence
+admiration
+adoration
+adrenaline rush
+aesthetic appreciation
+affection
+aggression
+agitation
+agony
+alarm
+alertness
+alienation
+amazement
+amused elation
+amused embarrassment
+amusement
+anger
+angry contempt
+angry disgust
+angry pain
+angry surprise
+anguish
+animosity
+annoyance
+anticipation
+anxiety
+apathy
+appreciation
+arousal
+astonishment
+attentiveness
+attraction
+awe
+awestruck realization
+awestruck surprise
+awkwardness
+bafflement
+basking
+befuddlement
+bewilderment
+bitterness
+bliss
+blushing
+boiling with anger
+boldness
+bone-chilling terror
+boredom
+brotherly love
+butterflies in stomach
+calmness
+camaraderie
+captivation
+caring
+caution
+certainty
+challenge
+charm
+cheer
+cheerfulness
+childlike curiosity
+chills down spine
+choking up
+chuckling
+cold sweats
+comfort
+commitment to someone
+compassion
+concentration
+concern
+confidence
+confusion
+contemplation
+contemplative interest
+contempt
+contemptuous doubt
+contentment
+courage
+crankiness
+craving
+cringing
+crying
+crying tears of joy
+curiosity
+cynicism
+dark humor
+daze
+dedication
+deep concentration
+deep contemplation
+deep focus
+deep relief
+defeat
+defensiveness
+defiance
+dejection
+delight
+demoralization
+depression
+desire
+desire to approach
+desire to avoid
+desolation
+despair
+desperation
+despising someone
+despondency
+detachment
+determination
+detestation
+devastation
+devotion
+disagreement
+disappointment
+disapproval
+disbelief
+discomfort
+discontentment
+discouragement
+disdain
+disenchantment
+disgrace
+disgruntlement
+disgust
+disgusted contempt
+disgusted surprise
+dishonor
+disillusionment
+disinterest
+dislike
+dismay
+displeasure
+dissatisfaction
+distaste
+distraction
+distress
+distressful confusion
+distressful sympathy
+distrust
+divine inspiration
+dizziness
+dominance
+doubt
+dread
+drowsiness
+dumbfoundedness
+eagerness
+earnestness
+ecstasy
+ecstatic desire
+edginess
+egotism
+elation
+elevation
+embarrassed relief
+embarrassment
+empathic pain
+empowerment
+emptiness
+enchantment
+enjoyment
+enthusiasm
+entrancement
+envy
+epiphany
+euphoria
+excitement
+exhaustion
+exhilaration
+existential dread
+expectancy
+extreme anger
+extreme awe
+extreme disappointment
+extreme disgust
+extreme distress
+extreme doubt
+extreme embarrassment
+extreme fear
+extreme happiness
+extreme interest
+extreme pleasure
+extreme sadness
+extreme shame
+extreme surprise
+exuberance
+fascination
+fatigue
+fear
+fear of missing out
+fearful anger
+fearful awe
+fearful disgust
+fearful surprise
+fearlessness
+feeling absorbed
+feeling active
+feeling alone
+feeling anguished
+feeling antipathy
+feeling appalled
+feeling appreciated
+feeling apprehensive
+feeling at ease
+feeling attacked
+feeling bashful
+feeling belittled
+feeling betrayed
+feeling bittersweet
+feeling blameworthy
+feeling blue
+feeling bored to tears
+feeling burdened
+feeling caged
+feeling cheated
+feeling competitive
+feeling cool
+feeling coy
+feeling creeped out
+feeling crushed
+feeling daring
+feeling deceived
+feeling delirious
+feeling disheartened
+feeling disinhibited
+feeling disoriented
+feeling distraught
+feeling dominant
+feeling downhearted
+feeling dreamy
+feeling dreary
+feeling dull
+feeling dumb
+feeling emasculated
+feeling empty
+feeling energetic
+feeling engaged
+feeling engrossed
+feeling excluded
+feeling fearless
+feeling fidgety
+feeling flirtatious
+feeling flustered
+feeling foggy
+feeling free
+feeling grossed out
+feeling heartened
+feeling hollow
+feeling horny
+feeling hurt
+feeling ignored
+feeling important
+feeling impressed
+feeling in control
+feeling inhibited
+feeling inquisitive
+feeling insecure
+feeling insulted
+feeling intimidated
+feeling intrigued
+feeling invincible
+feeling irritable
+feeling isolated
+feeling jaded
+feeling jittery
+feeling lazy
+feeling let down
+feeling liberated
+feeling lively
+feeling lost
+feeling loved
+feeling mad
+feeling mischievous
+feeling mortified
+feeling naughty
+feeling obstructed
+feeling offended
+feeling oppressed
+feeling out of place
+feeling overjoyed
+feeling overwhelmed
+feeling perplexed
+feeling petrified
+feeling pissed off
+feeling powerful
+feeling pumped
+feeling ready
+feeling reassured
+feeling refreshed
+feeling repentant
+feeling revitalized
+feeling safe
+feeling satiated
+feeling scared
+feeling secretive
+feeling sexy
+feeling shaky
+feeling silly
+feeling small
+feeling smart
+feeling sorry
+feeling startled
+feeling stimulated
+feeling strong
+feeling stuck
+feeling stunned
+feeling subdued
+feeling taken aback
+feeling threatened
+feeling thwarted
+feeling timid
+feeling torn
+feeling trapped
+feeling tricked
+feeling unappreciated
+feeling unobstructed
+feeling unready
+feeling unsafe
+feeling uplifted
+feeling upset
+feeling used
+feeling valued
+feeling violated
+feeling vulnerable
+feeling weak
+feeling worn out
+fierce loyalty
+flinching
+focus
+fondness
+forgiveness
+freezing with terror
+frustration
+fulfillment
+fuming
+fury
+giddiness
+giddy anticipation
+giggling
+gladness
+glee
+gloating
+gloom
+glory
+going ballistic
+goosebumps
+gratification
+gratitude
+great triumph
+grief
+grimacing
+grit
+grouchiness
+grudging respect
+grumpiness
+guilt
+guilty joy
+guilty pleasure
+happiness
+happy disgust
+happy surprise
+hate
+hatred
+having fun
+heart sinking
+heartache
+heartbreak
+heavenly bliss
+helplessness
+hesitancy
+hesitation
+high spirits
+honor
+hope
+hopelessness
+horror
+hostility
+humiliation
+humor
+hunger
+hysterical laughter
+ill temper
+impatience
+inadequacy
+indecision
+indifference
+indignation
+inferiority
+insight
+inspiration
+intense desire
+interest
+interested confusion
+intimacy
+invigoration
+irony
+irritation
+jealousy
+joking
+joy
+lack of focus
+laughter
+lightheadedness
+loathing
+loneliness
+longing
+love
+loving sympathy
+low spirits
+loyalty
+lust
+marveling
+maternal love
+melancholy
+mild joy
+misery
+mistrust
+moral repugnance
+mournfulness
+mystification
+nausea
+nervous breakdown
+nervous laughter
+nervousness
+nirvana
+nonchalance
+nostalgia
+not feeling in control
+numbness
+optimism
+orgasm
+out-of-body experience
+outrage
+overexcitement
+pain
+panic
+panic attack
+paranoia
+passion
+patriotism
+peacefulness
+pensiveness
+perseverance
+pessimism
+pity
+playfulness
+pleasant surprise
+pleasure
+pondering
+powerlessness
+pride
+pride in country
+pride in family
+pride in self
+profound disapproval
+puzzlement
+queasiness
+rage
+rapture
+realization
+redemption
+regret
+rejuvenation
+relaxation
+releasing tension
+relief
+relieved contentment
+relishing
+reluctance
+reminiscence
+remorse
+repugnance
+resentment
+resignation
+respect
+restlessness
+reverence
+revulsion
+righteous indignation
+romance
+romantic jealousy
+romantic love
+rumination
+sad anger
+sad disgust
+sad fear
+sad surprise
+sadness
+sarcasm
+satiation of hunger
+satiation of thirst
+satisfaction
+savoring
+scorn
+seething hatred
+self-anger
+self-confidence
+self-consciousness
+self-disgust
+self-dissatisfaction
+self-doubt
+self-loathing
+self-love
+self-pity
+sense of agreement
+sense of belonging
+sense of failure
+sense of fairness
+sense of flourishing
+sense of improvement
+sense of inertia
+sense of injustice
+sense of justice
+sense of mystery
+sense of narrow escape
+sense of security
+sense of unfairness
+sensory pleasure
+serenity
+severe pain
+sexual arousal
+sexual desire
+sexual frustration
+sexual gratification
+sexual tension
+shame
+sheepishness
+shock
+shuddering
+shyness
+skepticism
+sleepiness
+sluggishness
+smiling
+smugness
+snarkiness
+sneering contempt
+social anxiety
+solidarity
+sorrow
+spiritual epiphany
+spite
+strain
+stress
+stupor
+submissiveness
+suffering
+sulkiness
+sullenness
+superiority
+surprise
+suspicion
+sympathy
+tearing up laughing
+tenderness
+tension
+terror
+thankfulness
+thirst
+thoughtfulness
+thrill
+tiredness
+torment
+torture
+tranquility
+transcendence
+trauma
+treasuring the moment
+trembling with fear
+triumph
+triumphant amusement
+triumphant anger
+trust
+turmoil
+uncertainty
+unease
+unhappiness
+unspeakable horror
+urge to attack
+urge to be creative
+urge to escape
+urge to explore
+urge to provide care
+urge to provide help
+utter contempt
+utter despair
+utter disbelief
+vengefulness
+vigor
+vindication
+vitality
+vulnerability
+warmth
+weakness
+weariness
+wonder
+worry
+wrath
+yearning
+zeal
