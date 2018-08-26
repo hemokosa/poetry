@@ -19,7 +19,7 @@ class MAIN
     @th = []
     @tn = 0
     @inc = 1
-    @com = "HhQqCcSsIiDdTtGgPpVvFfEeKk+-.?!<#;,^Ww _\n"
+    @com = "HhQqCcSsIiDdTtGgRrPpVvFfEeKk+-.?!>#;,^()*@<~=$%&Ww _\n"
     @step = 0
     srand(Time.now.to_i)
     cmd = "say -v " + ["Alex", "Junior", "Princess", "Samantha", "Vicki", "Victoria"].sample
@@ -58,6 +58,8 @@ class MAIN
         truisms
       when /G|g/
         gbb
+      when /R|r/
+        rnd
       when /P|p/
         prophecy
       when /V|v/
@@ -68,25 +70,25 @@ class MAIN
         emotions
       when /K|k/
         kardashian
-      when "+"
+      when /\+|\(/
         increment
-      when "-"
+      when /-|\)/
         decrement
-      when "."
+      when /\.|\*/
         top
-      when "?"
+      when /\?|@/
         jump
-      when "!"
+      when /!|</
         back
-      when "<"
+      when />|~/
         rev
-      when "#"
+      when /#|=/
         go
-      when ";"
+      when /;|\$/
         append
-      when ","
+      when /,|%/
         overwrite
-      when "^"
+      when /\^|&/
         intervent
       when /W|w/
         weather
@@ -162,8 +164,9 @@ class MAIN
   end
 
   def hello
-    puts "Hello, world!"
-    speak("Hello, world!")
+    txt = "Hello, " + ["World", "Space", "Hackney", "Coding", "Human", "Again"].sample + "!"
+    puts txt
+    speak(txt)
   end
 
   def speak_source
@@ -250,6 +253,19 @@ class MAIN
         end
       }
       print " "
+    }
+    puts
+  end
+
+  def rnd
+    o = [('a'..'z'), ('A'..'Z'), ('0'..'9')].map { |i| i.to_a }.flatten
+    n = rand(3..6)
+    l = rand(4..8)
+    n.times{
+      l = rand(4..8)
+      txt = (0...l).map { o[rand(o.length)] }.join
+      print txt + " "
+      speak(txt)
     }
     puts
   end
