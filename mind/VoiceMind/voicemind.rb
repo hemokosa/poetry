@@ -203,9 +203,10 @@ class MAIN
         end
       end
       dic.sort.each {|key, value|
-        print key, " ", value, " "
+        # print key, " ", value, " "
+        print key, " "
         speak(key)
-        speak(value)
+        # speak(value)
       }
       puts
     }
