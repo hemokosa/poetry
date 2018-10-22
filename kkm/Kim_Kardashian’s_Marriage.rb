@@ -1,15 +1,19 @@
-#! /usr/bin/ruby
-
-# rdoc -S -N -c UTF-8 -t "Post Internet Genrative Poetry by Akihiro Kubota, for Source Code Poetry 2018" -m Post_Internet_Generative_Poetry Kim_Kardashian’s_Marriage.rb
+=begin
+rdoc -S -N -c UTF-8 -t "Post Internet Genrative Poetry by Akihiro Kubota, for Source Code Poetry 2018" -m Post_Internet_Generative_Poetry Kim_Kardashian’s_Marriage.rb
+=end
 
 # The title of Riviere’s book is misleading: the text inside was not, as you might have guessed, scraped from Kim Kardashian’s social-media presence or from gossip sites; in fact, it has nothing to do with her or her wedding at all, really.
 
 class Post_Internet_Generative_Poetry
 
-  require 'nokogiri'
   require 'open-uri'
+  require 'nokogiri'
 
-  #Instead, her previous union with the basketballer Kris Humphries, which lasted for 72 days, is made the collection’s silent scaffold. There are 72 poems arranged in chapters named after Kim’s daily cosmetic rites: “Primer”, “Contour”, “Highlight”, “Powder”, “Blend”, “Shadow”, “Liner”, “Gloss”.
+  # - "{Kim Kardashian's Marriage}[https://samriviere.com/index.php?/alone/kim-kardashians-marriage/]", Faber & Faber, 2015.
+
+  Sam_Riviere = 'Poet'
+
+  # Instead, her previous union with the basketballer Kris Humphries, which lasted for 72 days, is made the collection’s silent scaffold. There are 72 poems arranged in chapters named after Kim’s daily cosmetic rites: “Primer”, “Contour”, “Highlight”, “Powder”, “Blend”, “Shadow”, “Liner”, “Gloss”.
 
   attr_reader :Kims_Daily_Cosmetic_Rites
 
@@ -38,14 +42,19 @@ class Post_Internet_Generative_Poetry
       end
     end
   end
+
+  # This strange collection feels a long way from a wedding song. Nowhere does it mention Kim Kardashian’s lavish marriage to the musician Kanye West in Florence last May.
+
+  def document()
+  end
+
+  # - "{Kim Kardashian’s Marriage by Sam Riviere, review: 'great wit'}[ttps://www.telegraph.co.uk/culture/books/bookreviews/11451715/Kim-Kardashians-Marriage-by-Sam-Riviere.html]" by  Iona McLaren, March 06, 2015.
+  # - "{Post-Internet Poetry Comes of Age}[https://www.newyorker.com/books/page-turner/post-internet-poetry-comes-of-age]" by Kenneth Goldsmith, March 10, 2015.
+
+  def reference()
+  end
+
+  # - https://github.com/hemokosa/poetry/tree/master/kkm
+
 end
-
-# This strange collection feels a long way from a wedding song. Nowhere does it mention Kim Kardashian’s lavish marriage to the musician Kanye West in Florence last May.
-
 Post_Internet_Generative_Poetry.new.generate
-
-# excerpted from "Post-Internet Poetry Comes of Age" by Kenneth Goldsmith, March 10, 2015
-# https://www.newyorker.com/books/page-turner/post-internet-poetry-comes-of-age
-
-# excerpted from "Kim Kardashian’s Marriage by Sam Riviere, review: 'great wit'" by  Iona McLaren, March 06, 2015
-# https://www.telegraph.co.uk/culture/books/bookreviews/11451715/Kim-Kardashians-Marriage-by-Sam-Riviere.html
