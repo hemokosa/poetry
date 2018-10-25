@@ -17,7 +17,7 @@ class Post_Internet_Generative_Poetry
   end
 
   # Through an elaborate process of cannibalizing and recombining chapter headings from his previous books, Riviere has come up with a series of keywords upon which his Web searches are based.
-  attr_reader :url
+  attr_accessor :url
 
   # And the whole book is similarly deceptive: what appears to be a series of semi-confessional lyric poems are all mathematically based on Web searches.
   def generate()
