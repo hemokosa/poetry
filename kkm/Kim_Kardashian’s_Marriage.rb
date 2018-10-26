@@ -1,4 +1,4 @@
-# rdoc -S -N -c UTF-8 -t "Post Internet Genrative Poetry by Akihiro Kubota, for Source Code Poetry 2018" -m Post_Internet_Generative_Poetry Kim_Kardashian’s_Marriage.rb
+# rdoc -t "Post Internet Genrative Poetry by Akihiro Kubota, for Source Code Poetry 2018" -m Post_Internet_Generative_Poetry Kim_Kardashian’s_Marriage.rb
 require 'nokogiri'
 require 'open-uri'
 
