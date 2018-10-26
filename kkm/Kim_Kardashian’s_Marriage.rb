@@ -1,4 +1,4 @@
-# rdoc -t "Post Internet Genrative Poetry by Akihiro Kubota, for Source Code Poetry 2018" -m Post_Internet_Generative_Poetry Kim_Kardashian’s_Marriage.rb
+# rdoc -S -N -c UTF-8 -t "Post Internet Genrative Poetry by Akihiro Kubota, for Source Code Poetry 2018" -m Post_Internet_Generative_Poetry Kim_Kardashian’s_Marriage.rb
 require 'nokogiri'
 require 'open-uri'
 
@@ -37,7 +37,7 @@ class Post_Internet_Generative_Poetry
   # This strange collection feels a long way from a wedding song. Nowhere does it mention Kim Kardashian’s lavish marriage to the musician Kanye West in Florence last May.
   module Document
 
-    # - "{Kim Kardashian’s Marriage by Sam Riviere, review: 'great wit'}[ttps://www.telegraph.co.uk/culture/books/bookreviews/11451715/Kim-Kardashians-Marriage-by-Sam-Riviere.html]" by  Iona McLaren, March 06, 2015.
+    # - "{Kim Kardashian’s Marriage by Sam Riviere, review: 'great wit'}[https://www.telegraph.co.uk/culture/books/bookreviews/11451715/Kim-Kardashians-Marriage-by-Sam-Riviere.html]" by  Iona McLaren, March 06, 2015.
     # - "{Post-Internet Poetry Comes of Age}[https://www.newyorker.com/books/page-turner/post-internet-poetry-comes-of-age]" by Kenneth Goldsmith, March 10, 2015.
     def Reference()
     end
