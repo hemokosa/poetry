@@ -2,6 +2,8 @@ require 'net/http'
 require 'uri'
 require 'json'
 require 'date'
+require 'nokogiri'
+require 'open-uri'
 
 class MAIN
   def initialize(src)
@@ -17,7 +19,7 @@ class MAIN
     @th = []
     @tn = 0
     @inc = 1
-    @com = "HhQqCcSsIiDdTtGgRrPpVvFfEe+-.?!>#;,^()*@<~=$%&Ww _\n"
+    @com = "HhQqCcSsIiDdTtGgRrPpVvFfEeKk+-.?!>#;,^()*@<~=$%&Ww _\n"
     @step = 0
     srand(Time.now.to_i)
     cmd = "say -v " + ["Alex", "Junior", "Princess", "Samantha", "Vicki", "Victoria"].sample
@@ -66,6 +68,8 @@ class MAIN
         finnegan
       when /E|e/
         emotions
+      when /K|k/
+        kardashian
       when /\+|\(/
         increment
       when /-|\)/
@@ -281,6 +285,19 @@ class MAIN
 
   def emotions
     read('emotions.txt', 1)
+  end
+
+  def kardashian
+    term = "Kim+Kardashian+Marriage"
+    url = "http://www.google.com/search?num=100&hl=en&q=" + term
+    page = open url
+    doc = Nokogiri::HTML page
+
+    n = rand(99)
+    doc.search('h3 a').each_with_index do |phrase, index|
+      puts phrase.inner_text if index == n
+      speak(phrase.inner_text) if index == n
+    end
   end
 
   def increment
