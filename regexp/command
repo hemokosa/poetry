@@ -1,0 +1,2 @@
+say < test.txt &
+sed -ie "s/雨/山雨/g" test.txt
