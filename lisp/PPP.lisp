@@ -109,3 +109,103 @@ lst)
   (if (atom l)
       nil
       (insert-element f (car l) (insert-sort f (cdr l)))))
+
+
+
+(defun replace-nth (list n elem)
+  (cond
+    ((null list) ())
+    ((= n 0) (cons elem list))
+    (t (cons (car list) (replace-nth (cdr list) (1- n) elem)))))
+
+
+; Roussel Macros
+
+(setq R '(HOW I WROTE CERTAIN OF MY CODES))
+
+(defmacro ROUSSELR (ACIRFA)
+    (list 'reverse ACIRFA))
+
+(defmacro ROUSSELR (ACIRFA)
+    `(reverse ,ACIRFA))
+
+(defmacro noisy-second (x)
+  `(progn
+     (princ "Someone is taking a cadr!")
+     (cadr ,x)))
+
+
+(defun tree-leaves%% (tree test result)
+  (if tree
+    (if (listp tree)
+      (cons
+        (tree-leaves%% (car tree) test result)
+        (tree-leaves%% (cdr tree) test result))
+      (if (funcall test tree)
+        (funcall result tree)
+        tree))))
+
+
+(defmacro tree-leaves (tree test result)
+  `(tree-leaves%%
+     ,tree
+     (lambda (x)
+       (declare (ignorable x))
+       ,test)
+     (lambda (x)
+       (declare (ignorable x))
+       ,result)))
+
+(tree-leaves
+    '(1 2 (3 4 (5 6)))
+    (and (numberp x) (evenp x))
+    'even-number)
+
+(tree-leaves
+    R
+    (equal x 'WROTE)
+    (list x '(ZZZ)))
+
+(tree-leaves R (equal x 'WROTE) (list x '(ZZZ)))
+
+(defun insert (lst ins)
+  (push ins (cdr lst))
+  lst)
+
+(defun roussel% (tree test result)
+  (if tree
+    (if (listp tree)
+      (cons
+        (roussel% (car tree) test result)
+        (roussel% (cdr tree) test result))
+      (if (funcall test tree)
+        (funcall result tree)
+        tree))))
+
+(defmacro roussel (tree test result)
+  `(roussel%
+     ,tree
+     (lambda (raymond)
+       (declare (ignorable raymond))
+       ,test)
+     (lambda (raymond)
+       (declare (ignorable raymond))
+       ,result)))
+
+(roussel R (equal raymond 'WROTE) (cons x '(ZZZ)))
+
+
+(setq R '(HOW I WROTE CERTAIN OF MY CODES))
+(setq A '(IMPRESSIONS OF AFRICA))
+(setq S '(LOCUS SOLUS))
+(setq L '(ARE NOT LANGUAGES))
+(setq M '(ARE BUILDING MATERIALS))
+
+
+(roussel R (equal raymond 'WROTE) (cons raymond A))
+(roussel (roussel R (equal raymond 'WROTE) (cons raymond A)) (equal raymond 'WROTE) (cons raymond S))
+
+(setq Q '(HOW I ((WROTE LOCUS SOLUS) IMPRESSIONS OF AFRICA) CERTAIN OF MY CODES))
+
+(setq P (roussel Q (equal raymond 'CODES) (cons raymond L)))
+(roussel P (equal raymond 'CODES) (cons raymond M))
