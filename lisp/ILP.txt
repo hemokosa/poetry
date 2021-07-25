@@ -63,7 +63,7 @@ The third one is:
 
 I want to manipulate these list poems like Roussel using GNU CLISP (ANSI Common Lisp).
 
-> clisp
+% clisp
   i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
   I I I I I I I      8     8   8           8     8     o  8    8
   I  \ `+' /  I      8         8           8     8        8    8
