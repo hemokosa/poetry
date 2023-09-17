@@ -7,8 +7,8 @@ class MAIN
   def initialize(src)
     @src = src
     @accum = 0
-    @mind = 50
-    @base = 50.0
+    @mind = 160
+    @base = 640.0
     @min = 10
     @max = 20
     @code = ""
@@ -16,12 +16,13 @@ class MAIN
     @th = []
     @tn = 0
     @inc = 1
-    @com = "HhQqCcAaIiTtGgPp9Ff+-,.?<#,;!Ww _\n"
+    @com = "HhQqCcAaIiTtGgPp9Ff10+-.&?<>^#%;!Ww@_"
     @step = 0
     srand(Time.now.to_i)
   end
 
   def run
+    jump
     loop {
       c = @src[@count]
       case c
@@ -55,14 +56,20 @@ class MAIN
         decrement
       when "."
         top
+      when "&"
+        bottom
       when "?"
         jump
       when "<"
         back
+      when ">"
+        forward
       when "^"
         rev
       when "#"
         go
+      when "%"
+        judge
       when ";"
         append
       when ","
@@ -71,28 +78,34 @@ class MAIN
         intervent
       when /W|w/
         weather
-      when " "
-        puts
+      when "@"
+        puts @count
       when "_"
         sleep(1)
       end
       @code = c
       @count += @inc
-      if @count >= @src.length || @count < 0 then
-        break
+      if @count >= @src.length then
+        @count = @src.length - 1
+        @inc = -1
       end
-      File.open(ARGF.filename){|f|
-        @src = f.read
-        if @count >= @src.length then
-          @count = 0
-        end
-      }
+      if @count < 0 then
+        @count = 0
+        @inc = 1
+      end
       @step += 1
-      if @step >= 10000 then
+      if @step >= 100 then
         break
       end
-      emotion
+      File.open(ARGF.filename, 'r+') {|f|
+        f.sync = true
+        f.seek(rand(@src.length), IO::SEEK_SET)
+        f.write(@com.slice(rand(@com.length)))
+        @src = f.read
       }
+      emotion
+      p @count, @step, @mind
+    }
   end
 
   private
@@ -287,15 +300,25 @@ class MAIN
   end
 
   def top
-    @count = -1
+    @count = 0
+    @inc = 1
+  end
+
+  def bottom
+    @count = @src.length - 1
+    @inc = -1
   end
 
   def jump
-    @count = rand(@src.length) - 1
+    @count = rand(@src.length)
   end
 
   def back
-    @count = rand(@count) - 1
+    @count = rand(@count)
+  end
+
+  def forward
+    @count += rand(@src.length - @count)
   end
 
   def rev
@@ -303,30 +326,42 @@ class MAIN
   end
 
   def go
-    g = @accum
-    if g > @src.length then
-      g = @src.length
+    @count = @accum
+    if @count >= @src.length then
+      @count = @src.length - 1
+      @inc = -1
     end
-    @count = g
+  end
+
+  def judge
+    if rand(10) > 5 then
+      exit
+    end
   end
 
   def append
+    p = @com.slice(rand(@com.length))
+    system("say -r " + @mind.to_s + " " + p.delete('<>'))
+    puts
     File.open(ARGF.filename, 'a') {|f|
-      f.write(@com.slice(rand(@com.length)))
+      f.write(p)
     }
   end
 
   def overwrite
+    p = @com.slice(rand(@com.length))
+    system("say -r " + @mind.to_s + " " + p.delete('<>'))
+    puts
     File.open(ARGF.filename, 'r+') {|f|
       f.sync = true
       f.seek(rand(@src.length), IO::SEEK_SET)
-      f.write(@com.slice(rand(@com.length)))
+      f.write(p)
     }
   end
 
   def intervent
     overwrite
-    top
+    jump
   end
 
   def weather
