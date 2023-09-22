@@ -16,7 +16,7 @@ class MAIN
     @th = []
     @tn = 0
     @inc = 1
-    @com = "HhQqCcAaIiTtGgPp9Ff10+-.&?<>^#%;!Ww@_"
+    @com = "HhQqCcAaIiTtGgPp9Ff10+-.&?<>^#%;,!~=Ww@_"
     @step = 0
     srand(Time.now.to_i)
   end
@@ -25,6 +25,7 @@ class MAIN
     jump
     loop {
       c = @src[@count]
+      p @count
       case c
       when /H|h/
         hello
@@ -76,6 +77,10 @@ class MAIN
         overwrite
       when "!"
         intervent
+      when "~"
+        randword
+      when "="
+        randnum
       when /W|w/
         weather
       when "@"
@@ -94,17 +99,15 @@ class MAIN
         @inc = 1
       end
       @step += 1
+      p @step, @inc
       if @step >= 100 then
         break
       end
-      File.open(ARGF.filename, 'r+') {|f|
-        f.sync = true
-        f.seek(rand(@src.length), IO::SEEK_SET)
-        f.write(@com.slice(rand(@com.length)))
+      File.open(ARGF.filename, 'rt') {|f|
         @src = f.read
       }
       emotion
-      p @count, @step, @mind
+      puts "====="
     }
   end
 
@@ -119,7 +122,7 @@ class MAIN
   end
 
   def count_source
-    File.open(ARGF.filename) {|f|
+    File.open(ARGF.filename, 'rt') {|f|
       l_num = w_num = c_num = 0
       while line = f.gets
         line.chomp!
@@ -136,7 +139,7 @@ class MAIN
 
   def sort_source
     dic = Hash.new(0)
-    File.open(ARGF.filename) {|f|
+    File.open(ARGF.filename, 'rt') {|f|
       while line = f.gets
         line.downcase!
         while line.sub!(/[a-z]+/, "")
@@ -153,7 +156,7 @@ class MAIN
 
   def introspection
     fname = File.basename(__FILE__)
-    fp = open(fname,'r')
+    fp = open(fname,'rt')
     line_count = 0
     while fp.gets
       line_count += 1
@@ -271,7 +274,7 @@ class MAIN
         else
           print [47, 92][rand(0..1)].chr
         end
-        sleep(@base/@mind/10.0)
+        sleep(@base/@mind)
       end
     }
   end
@@ -297,32 +300,46 @@ class MAIN
       @accum = 0
     end
     @mind -= rand(2)
-  end
-
-  def top
-    @count = 0
-    @inc = 1
-  end
-
-  def bottom
-    @count = @src.length - 1
-    @inc = -1
+    if @mind < 10
+      @mind = 10
+    end
   end
 
   def jump
     @count = rand(@src.length)
   end
 
+  def randjump
+    if rand(10) == 0 then
+      @count = rand(@src.length)
+    end
+  end
+
+  def top
+    @count = 0
+    @inc = 1
+    randjump
+  end
+
+  def bottom
+    @count = @src.length - 1
+    @inc = -1
+    randjump
+  end
+
   def back
     @count = rand(@count)
+    randjump
   end
 
   def forward
     @count += rand(@src.length - @count)
+    randjump
   end
 
   def rev
     @inc = -1 * @inc
+    randjump
   end
 
   def go
@@ -331,6 +348,7 @@ class MAIN
       @count = @src.length - 1
       @inc = -1
     end
+    randjump
   end
 
   def judge
@@ -340,18 +358,50 @@ class MAIN
   end
 
   def append
-    p = @com.slice(rand(@com.length))
-    system("say -r " + @mind.to_s + " " + p.delete('<>'))
-    puts
+  begin
+    p = @com.slice(rand(@com.length), 3).to_s.gsub!('`', '')
+    system("say -r " + @mind.to_s + " " + p)
+    puts p
     File.open(ARGF.filename, 'a') {|f|
+      f.write(p)
+    }
+  rescue => e
+    puts e.message
+    exit
+  end
+  end
+
+  def overwrite
+  begin
+    p = @com.slice(rand(@com.length), 3).to_s.gsub!('`', '')
+    system("say -r " + @mind.to_s + " " + p)
+    puts p
+    File.open(ARGF.filename, 'r+') {|f|
+      f.sync = true
+      f.seek(rand(@src.length), IO::SEEK_SET)
+      f.write(p)
+    }
+  rescue => e
+    puts e.message
+    exit
+  end
+  end
+
+  def randword
+    p = ('A'..'z').to_a.sample(3).join
+    system("say -r " + @mind.to_s + " " + p)
+    puts p
+    File.open(ARGF.filename, 'r+') {|f|
+      f.sync = true
+      f.seek(rand(@src.length), IO::SEEK_SET)
       f.write(p)
     }
   end
 
-  def overwrite
-    p = @com.slice(rand(@com.length))
-    system("say -r " + @mind.to_s + " " + p.delete('<>'))
-    puts
+  def randnum
+    p = ('0'..'9').to_a.sample(3).join
+    system("say -r " + @mind.to_s + " " + p)
+    puts p
     File.open(ARGF.filename, 'r+') {|f|
       f.sync = true
       f.seek(rand(@src.length), IO::SEEK_SET)

@@ -1,0 +1,187 @@
+mind.rb:347:in `system': Interrupt
+	from mind.rb:347:in `append'
+	from mind.rb:75:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:420:in `<main>'
+mind.rb:347:in `system': Interrupt
+	from mind.rb:347:in `append'
+	from mind.rb:75:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:420:in `<main>'
+mind.rb:347:in `system': Interrupt
+	from mind.rb:347:in `append'
+	from mind.rb:75:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:420:in `<main>'
+mind.rb:356:in `system': Interrupt
+	from mind.rb:356:in `overwrite'
+	from mind.rb:388:in `intervent'
+	from mind.rb:79:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:420:in `<main>'
+mind.rb:345:in `system': Interrupt
+	from mind.rb:345:in `overwrite'
+	from mind.rb:75:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:409:in `<main>'
+mind.rb:356:in `system': Interrupt
+	from mind.rb:356:in `overwrite'
+	from mind.rb:77:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:420:in `<main>'
+mind.rb:356:in `system': Interrupt
+	from mind.rb:356:in `overwrite'
+	from mind.rb:388:in `intervent'
+	from mind.rb:79:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:420:in `<main>'
+say: invalid option -- .
+Usage: say [-v voice] [-o out] [-f in | message]
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+mind.rb:356:in `system': Interrupt
+	from mind.rb:356:in `overwrite'
+	from mind.rb:388:in `intervent'
+	from mind.rb:79:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:420:in `<main>'
+mind.rb:424:in `sleep': Interrupt
+	from mind.rb:424:in `emotion'
+	from mind.rb:109:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:428:in `<main>'
+sh: ,: command not found
+say: invalid option -- .
+Usage: say [-v voice] [-o out] [-f in | message]
+mind.rb:426:in `sleep': Interrupt
+	from mind.rb:426:in `emotion'
+	from mind.rb:109:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:430:in `<main>'
+sh: ,: command not found
+mind.rb:430:in `sleep': Interrupt
+	from mind.rb:430:in `emotion'
+	from mind.rb:109:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:434:in `<main>'
+mind.rb:228:in `sleep': Interrupt
+	from mind.rb:228:in `block in bottles_of_beer'
+	from mind.rb:213:in `downto'
+	from mind.rb:213:in `bottles_of_beer'
+	from mind.rb:47:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:437:in `<main>'
+mind.rb:370:in `system': Interrupt
+	from mind.rb:370:in `overwrite'
+	from mind.rb:405:in `intervent'
+	from mind.rb:79:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:437:in `<main>'
+mind.rb:435:in `sleep': Interrupt
+	from mind.rb:435:in `emotion'
+	from mind.rb:109:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:439:in `<main>'
+mind.rb:437:in `sleep': Interrupt
+	from mind.rb:437:in `emotion'
+	from mind.rb:109:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:441:in `<main>'
+mind.rb:357:in `system': Interrupt
+	from mind.rb:357:in `append'
+	from mind.rb:75:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:441:in `<main>'
+mind.rb:435:in `sleep': Interrupt
+	from mind.rb:435:in `emotion'
+	from mind.rb:109:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:439:in `<main>'
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+mind.rb:435:in `sleep': Interrupt
+	from mind.rb:435:in `emotion'
+	from mind.rb:109:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:439:in `<main>'
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+mind.rb:435:in `sleep': Interrupt
+	from mind.rb:435:in `emotion'
+	from mind.rb:109:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:439:in `<main>'
+mind.rb:371:in `system': Interrupt
+	from mind.rb:371:in `overwrite'
+	from mind.rb:407:in `intervent'
+	from mind.rb:79:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:439:in `<main>'
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+mind.rb:435:in `sleep': Interrupt
+	from mind.rb:435:in `emotion'
+	from mind.rb:109:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:439:in `<main>'
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+mind.rb:441:in `sleep': Interrupt
+	from mind.rb:441:in `emotion'
+	from mind.rb:109:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:445:in `<main>'
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+sh: -c: line 0: unexpected EOF while looking for matching ``'
+sh: -c: line 1: syntax error: unexpected end of file
+mind.rb:441:in `sleep': Interrupt
+	from mind.rb:441:in `emotion'
+	from mind.rb:109:in `block in run'
+	from mind.rb:26:in `loop'
+	from mind.rb:26:in `run'
+	from mind.rb:445:in `<main>'
